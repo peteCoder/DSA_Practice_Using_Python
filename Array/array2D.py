@@ -72,11 +72,6 @@ for line in file:
 
 
 
-# print(arr.display())
-
-# arr.clear(0)
-# print(arr.display())
-
 
 
 

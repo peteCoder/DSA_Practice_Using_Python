@@ -96,4 +96,4 @@ class _ArrayIterator:
 
 
 # Use the array ADT as follows:
-arr = Array1D(7)
+# arr = Array1D(7)

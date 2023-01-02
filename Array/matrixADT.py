@@ -1,5 +1,3 @@
-
-
 from array2D import Array2D
 
 class Matrix:
@@ -61,16 +59,19 @@ class Matrix:
 	def __mul__(self, rhsMatrix):
 		assert self.numCols() == rhsMatrix.numRows(), "The number of nrows and ncols are incompatible"
 		newMatrix = Matrix(rhsMatrix.numCols(), rhsMatrix.numCols())
-		
-		for i in range(self.numRows()):
-			for j in range(rhsMatrix.numCols()):
-				for k in range(rhsMatrix.numRows()):
-					newMatrix[i, j] += self[i, k] * rhsMatrix[k, j]
+
+		for i in range(self.numRows()): # (0, 3)
+			for j in range(rhsMatrix.numCols()): # (0, 3)
+				for k in range(rhsMatrix.numRows()): # (0, 2)
+					# newMatrix[i, j] += ( self[i, k] * rhsMatrix[k, j] )
+					print(f"i = {i} ", f"j = {j} ", f"k = {k} ")
+					newMatrix[i, j] = newMatrix[i, j] + ( self[i, k] * rhsMatrix[k, j] )
 		return newMatrix
 	
 
 	def transpose(self):
 		# Return a new matrix where the rows are columns and the columns are rows
+		matrix = self._theGrid
 		col = self.numCols()
 		row = self.numRows()
 		newMatrix = Matrix(col, row)
@@ -83,26 +84,26 @@ class Matrix:
 
 
 
-matrix1 = Matrix(3, 2)
-matrix1[0,0] = 0
-matrix1[0,1] = 1
-matrix1[1,0] = 2
-matrix1[1,1] = 3
-matrix1[2,0] = 4
-matrix1[2,1] = 5
+# matrix1 = Matrix(3, 2)
+# matrix1[0,0] = 0
+# matrix1[0,1] = 1
+# matrix1[1,0] = 2
+# matrix1[1,1] = 3
+# matrix1[2,0] = 4
+# matrix1[2,1] = 5
 
-matrix2 = Matrix(2, 3)
-matrix2[0,0] = 6
-matrix2[0,1] = 7
-matrix2[0,2] = 8
-matrix2[1,0] = 9
-matrix2[1,1] = 1
-matrix2[1,2] = 0
+# matrix2 = Matrix(2, 3)
+# matrix2[0,0] = 6
+# matrix2[0,1] = 7
+# matrix2[0,2] = 8
+# matrix2[1,0] = 9
+# matrix2[1,1] = 1
+# matrix2[1,2] = 0
 
-print(matrix1.display())
-print(matrix2.display())
-matrix3 =   matrix1 * matrix2
-print(matrix3.display())
+# print(matrix1.display())
+# print(matrix2.display())
+# matrix3 =   matrix1 * matrix2
+# print(matrix3.display())
 # file = open("exam.txt", "r")
 # numStudents = int(file.readline().strip())
 # numExam = int(file.readline().strip())
